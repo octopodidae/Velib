@@ -1,0 +1,494 @@
+#app,
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+}
+#viewDiv {
+  position: absolute;
+  left: 35%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 65%;
+}
+.menuPanel {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  background-color: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  width: 35%;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 2px 1px rgba(100, 100, 100, 0.75);
+  z-index: 10;
+  overflow-y: auto;
+  padding-left: 5px;
+}
+.btn-station {
+  padding: 10px !important;
+  margin: 1px !important;
+}
+#app > div.menuPanel > div {
+  padding-bottom: 10px;
+  padding-top: 3px;
+}
+#searchWidget {
+  height: max-content;
+}
+#myWidgets {
+  position: fixed;
+  top: 0;
+  width: 35%;
+  height: 25%;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 2px 1px rgba(100, 100, 100, 0.75);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 100;
+}
+@media only screen and (min-width: 1824px) {
+  #viewDiv {
+    left: 30%;
+    width: 70%;
+    padding: 0;
+    margin: 0;
+  }
+  .menuPanel {
+    top: 20%;
+    width: 30%;
+  }
+  #myWidgets {
+    width: 30%;
+    height: 20%;
+  }
+}
+
+/* ----------- iPhone 5 ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 568px) and (max-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 667px) and (max-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 736px) and (max-device-width: 414px) and (-webkit-min-device-pixel-ratio: 3) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* Landscape */
+@media screen and (device-width: 640px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 3) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* Landscape */
+@media screen and (device-width: 640px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 4) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* ----------- Galaxy S9 ----------- */
+
+/* Portrait */
+@media screen and (device-width: 360px) and (device-height: 740px) and (-webkit-device-pixel-ratio: 4) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+/* Landscape */
+@media screen and (device-width: 740px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 4) {
+  #searchWidget-suggest-menu,
+  .ui.button,
+  .esri-input,
+  #divNoResult,
+  h2.esri-popup__header-title,
+  .ui.label {
+    font-size: 0.7rem;
+  }
+  #legendPanel {
+    display: none;
+  }
+  .esri-view-width-less-than-medium .esri-popup__main-container {
+    width: 30%;
+  }
+  div.esri-search:nth-child(1) {
+    flex-grow: 1;
+  }
+}
+.esri-view-width-xlarge .esri-popup__main-container,
+.esri-view-width-large .esri-popup__main-container,
+.esri-view-width-medium .esri-popup__main-container {
+  width: auto !important;
+}
+.esri-popup__inline-actions-container > .esri-popup__action,
+.esri-popup__inline-actions-container > .esri-popup__action-toggle {
+  max-width: 100% !important;
+}
+.esri-feature-content {
+  margin-bottom: 2px !important;
+}
+.esri-popup__footer.esri-popup__footer--has-actions {
+  display: none !important;
+}
+.pure-toggle {
+  cursor: pointer;
+  font-size: 1.5em;
+  width: 6em;
+  height: 3em;
+  display: inline-block;
+  position: relative;
+  background: #242424;
+  text-align: left;
+  line-height: 3em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-perspective: 300px;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+}
+.pure-toggle:before {
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url("https://www.arcgis.com/sharing/rest/content/items/cf9f9df812824b30a5fb94f8cf0cc102/info/thumbnail/navigation_thumb_b2.jpg?f=json");
+  background-size: cover;
+  display: inline-block;
+  text-align: center;
+  content: "";
+  color: #ffffff;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+.pure-toggle [class^="basemap-"] {
+  padding: 1.1em;
+  line-height: inherit;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+#basemapWidget {
+  bottom: 15px;
+  position: absolute;
+  right: 15px;
+  z-index: 100;
+}
+input[type="checkbox"] + .pure-toggle:before {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+input[type="checkbox"] + .pure-toggle [class^="basemap-"],
+input[type="checkbox"] + .pure-toggle [class*="basemap-"] {
+  color: #69dcff;
+}
+input[type="checkbox"]:checked + .pure-toggle:before {
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  background: url("https://www.arcgis.com/sharing/rest/content/items/846db0feb3e943f6b671d735761d666e/info/thumbnail/streetnight_thumb_b2.jpg");
+  background-size: cover;
+}
+input[type="checkbox"]:checked + .pure-toggle [class^="basemap-"],
+input[type="checkbox"]:checked + .pure-toggle [class*="basemap-"] {
+  color: #69dcff;
+}
+.esri-search {
+  width: unset !important;
+}
+,
+.esri-widget:focus {
+  outline: none !important;
+}
+:focus {
+  outline: none !important;
+}
+#legendPanel {
+  /*   margin-bottom: 20px; */
+  margin-top: 20px;
+  height: 70%;
+}
+#legendPanel span.ui.yellow.circular.label {
+  border: 3px solid red !important;
+}
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding: 0.8em 1.2em;
+  overflow: hidden;
+  list-style: none;
+  color: white;
+  font-weight: 700;
+}
+/* .Rtable--2cols > .Rtable-cell {
+  width: 50%;
+} */
+.Rtable--3cols > .Rtable-cell {
+  width: 33.33%;
+}
+/* .Rtable--4cols > .Rtable-cell {
+  width: 25%;
+}
+.Rtable--5cols > .Rtable-cell {
+  width: 20%;
+}
+.Rtable--6cols > .Rtable-cell {
+  width: 16.6%;
+} */
+.ui.circular.label,
+.ui.circular.labels .label {
+  min-width: 2.3em !important;
+  min-height: 2.3em !important;
+}
+.ui.segment {
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.no-result {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #242424;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  line-height: 16px;
+  background-clip: padding-box;
+  overflow: hidden;
+  width: 100%;
+}

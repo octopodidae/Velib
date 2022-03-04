@@ -1,0 +1,74 @@
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velib'</title>
+  <!--  CSS  -->
+  <!--   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link id="cssArcgisJs" rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/dark-blue/main.css"> -->
+  <!--  JS  -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script src="https://js.arcgis.com/4.18/"></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div id="viewDiv"></div>
+
+    <div id="myWidgets">
+      <div class="esri-search esri-widget" style="height: max-content;">
+        <div class="esri-search__container">
+          <div class="esri-search__input-container">
+            <input type="text" placeholder="Rechercher une station" class="esri-input esri-search__input" title="Nom station" v-model="searchString" v-on:keyup="resetSearch(); displayCleanSearch()" v-on:keyup.enter="searchByName" spellcheck="false">
+            <button class="esri-search__clear-button esri-widget--button" title="Effacer la recherche" v-on:click="cleanSearchFct"><span aria-hidden="true" class="esri-icon-close"></span></button>
+          </div>
+          <button class="esri-search__submit-button esri-widget--button" title="Rechercher" v-on:click="searchByName"><span class="esri-icon-search"></span></button>
+          <div id="divNoResult" class="no-result">
+            <div class="esri-search__warning-body">
+              <div class="esri-search__warning-header">Aucun résultat</div>
+              <div class="esri-search__warning-text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="searchWidget" style="flex-grow: 1;"></div>
+      <div>
+        <div id="homeWidget"></div>
+      </div>
+      <div id="legendPanel">
+        <div class="Rtable Rtable--3cols">
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui yellow circular label"></span><span style="position: absolute;">Station</span></div>
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui violet circular label hide">{{capacity}}</span><span style="position: absolute;">Capacité</span></div>
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui purple circular label hide">{{bikesavailable}}</span><span style="position: absolute;">Vélo disponible</span></div>
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui green circular label hide">{{mechanical}}</span><span style="position: absolute;">Vélo méchanique</span></div>
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui teal circular label hide">{{ebike}}</span><span style="position: absolute;">Vélo électrique</span></div>
+          <div class="Rtable-cell"><span style="margin-right: 20px;" class="ui blue circular label hide">{{dock}}</span><span style="position: absolute;">Dock libre</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="menuPanel">
+      <div>
+        <button v-for="station in stations" :key="station.fields.name" :data-id="station.fields.stationcode" :data-bikesavailable="station.fields.numbikesavailable" :data-capacity="station.fields.capacity" :data-mechanical="station.fields.mechanical" :data-ebike="station.fields.ebike" :data-dock="station.fields.numdocksavailable" @click="zoomToStationAndHighlight(station.fields.stationcode)" @mouseover="hoverBtn" @mouseleave="leaveBtn" class="ui secondary button btn-station">{{station.fields.name}}</button>
+      </div>
+      <div class="ui segment" style="position: unset;">
+        <div class="ui active dimmer">
+          <div class="ui massive text loader">Loading</div>
+        </div>
+      </div>
+    </div>
+    <div id="basemapWidget">
+      <input type="checkbox" id="pure-toggle-0" hidden @click="toogleBasemap">
+      <label class="pure-toggle lightNight" for="pure-toggle-0"><span class="basemap-ok"><span class="esri-icon-basemap"></span></span><span class="basemap-remove"><span class="esri-icon-basemap"></span></label>
+    </div>
+
+  </div>
+  <!--end div app -->
+
+</body>
+
+</html>
